@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taqwa Ahmed Al-Wawi - Writer & Poet</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">Taqwa Ahmed Al-Wawi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#poems">Poetry</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#translations">Translations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#republished">Republished</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-4">Taqwa Ahmed Al-Wawi</h1>
+                        <p class="lead mb-4">Writer & Poet | Amplifying Gaza's Voice Through Words</p>
+                        <p class="mb-4">19 years old, studying English Literature at the Islamic University of Gaza.</p>
+                        <div class="hero-buttons">
+                            <a href="#about" class="btn btn-primary btn-lg me-3">Learn More</a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg">Get in Touch</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="css/img/taqwa.jpg" alt="Taqwa Ahmed Al-Wawi" class="img-fluid rounded-circle profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title mb-5">A Glimpse Into My Journey ✨</h2>
+                    <div class="about-content">
+                        <p class="lead">I'm Taqwa Ahmed Al-Wawi, 19 years old, studying English literature at the Islamic University of Gaza. I'm a writer and poet, and through my words, I strive to amplify Gaza's voice and shed light on stories that are often left untold.</p>
+                        <p>In addition to contributing to We Are Not Numbers (WANN), my work has appeared in prominent outlets including The Electronic Intifada, Mondoweiss, The Washington Report on Middle East Affairs, The Palestine Chronicle, The Markaz Review, Middle East Monitor, Al Jazeera English, Middle East Eye, The Massachusetts Review, Baladi Magazine, the Institute for Palestine Studies, Prism, the New Arab, The Intercept, Politics Today, and Truthout. My poetry has also been published by the Gaza Poets Society.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">My Articles</h2>
+            <div class="row" id="articles-container">
+                <!-- Articles will be loaded here by JavaScript -->
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" id="load-more-articles">Load More Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Poetry Section -->
+    <section id="poems" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">My Poetry</h2>
+            <div class="row" id="poems-container">
+                <!-- Poems will be loaded here by JavaScript -->
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" id="load-more-poems">Load More Poems</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Translations Section -->
+    <section id="translations" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Articles in Other Languages</h2>
+            <div class="row" id="translations-container">
+                <!-- Translations will be loaded here by JavaScript -->
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" id="load-more-translations">Load More translations</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Republished Section -->
+    <section id="republished" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Republished Articles</h2>
+            <div class="row" id="republished-container">
+                <!-- Republished articles will be loaded here by JavaScript -->
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" id="load-more-republished">Load More republished</button>
+            </div>
+        </div>
+    </section>
+    <!-- Podcasts Section -->
+     <section id="podcasts" class="content-section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Podcasts</h2>
+                <p class="section-subtitle">Audio participation in different podcast shows</p>
+            </div>
+            <div class="row" id="podcasts-container">
+                <!-- Podcasts will be loaded here by JavaScript -->
+            </div>
+            <div class="text-center mt-4">
+                <button id="load-more-podcasts" class="btn btn-outline-primary">Load More Podcasts</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title mb-5">Get in Touch</h2>
+                    <p class="lead mb-4">Connect with me on social media or reach out via email</p>
+                    
+                    <div class="contact-info mb-5">
+                        <p class="mb-3">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:taqwa2019ahmed@gmail.com" class="text-light">taqwa2019ahmed@gmail.com</a>
+                        </p>
+                    </div>
+
+                    <div class="social-links">
+                        <h4 class="mb-4">Follow Me</h4>
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="social-grid">
+                                    <a href="https://www.instagram.com/taqwa2006ahmed?igsh=aTNnNmtuNmFlanJ0" target="_blank" class="social-link">
+                                        <i class="fab fa-instagram"></i>
+                                        <span>Instagram</span>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/taqwa-ahmed-al-wawi-04a2b834a" target="_blank" class="social-link">
+                                        <i class="fab fa-linkedin"></i>
+                                        <span>LinkedIn</span>
+                                    </a>
+                                    <a href="https://www.threads.net/@taqwa2006ahmed" target="_blank" class="social-link">
+                                        <i class="fab fa-threads"></i>
+                                        <span>Threads</span>
+                                    </a>
+                                    <a href="https://x.com/TAQWA19AHMED" target="_blank" class="social-link">
+                                        <i class="fab fa-x-twitter"></i>
+                                        <span>X (Twitter)</span>
+                                    </a>
+                                    <a href="https://www.facebook.com/share/16YCXfhdfG/" target="_blank" class="social-link">
+                                        <i class="fab fa-facebook"></i>
+                                        <span>Facebook</span>
+                                    </a>
+                                    <a href="https://substack.com/@taqwa2006ahmed" target="_blank" class="social-link">
+                                        <i class="fas fa-newspaper"></i>
+                                        <span>Substack</span>
+                                    </a>
+                                    <a href="https://medium.com/@taqwa2019ahmed" target="_blank" class="social-link">
+                                        <i class="fab fa-medium"></i>
+                                        <span>Medium</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Taqwa Ahmed Al-Wawi. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
