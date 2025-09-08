@@ -1,6 +1,12 @@
 // Data for articles, poems, translations, and republished content
 const articlesData = [
   {
+    title: "Israeli Forces Bomb, Loot, Vandalize Our Homes in Gaza. We Long for Normal Life",
+    url: "https://truthout.org/articles/israeli-forces-bomb-loot-vandalize-our-homes-in-gaza-we-long-for-normal-life/",
+    publication: "TRUTHOUT",
+    date: "September 8, 2025",
+  },
+  {
     title: "Airdropped Aid Is Crushing Starving People in Gaza",
     url: "https://theintercept.com/2025/08/22/gaza-aid-airdrops/",
     publication: "The Intercept",
@@ -216,60 +222,6 @@ const poemsData = [
     description: "A poem from Gaza about longing and loss",
   },
   {
-    title: "I MISS MY OLD LIFE",
-    url: "https://www.instagram.com/p/DKcrTsHto9A/",
-    publication: "Instagram",
-    description: "Reflecting on life before the war",
-  },
-  {
-    title: "SAUDADE: A POEM OF GRIEF AND RESILIENCE",
-    url: "https://www.instagram.com/p/DK2x5-RtkeP/",
-    publication: "Instagram",
-    description: "Featured on KPFA radio and read twice due to its powerful impact",
-  },
-  {
-    title: "THREE DAYS OF ISOLATION",
-    url: "https://www.instagram.com/p/DK7l_HstXK7/",
-    publication: "Instagram",
-    description: "Featured and read by Shambhavi on the platform Kindred 108",
-  },
-  {
-    title: "Alone but Unbroken: Gaza's Cry Against Silence",
-    url: "https://www.instagram.com/p/DLMhKL1Nfe-/",
-    publication: "Instagram",
-    description: "A cry against the world's silence",
-  },
-  {
-    title: "A Battle No One Sees",
-    url: "https://www.instagram.com/p/DLUHaA1NXks/",
-    publication: "Instagram",
-    description: "About invisible struggles",
-  },
-  {
-    title: "TO BE OR NOT TO BE — THE ENDLESS DUEL",
-    url: "https://www.instagram.com/p/DLk9oletAoW/",
-    publication: "Instagram",
-    description: "An existential reflection on survival",
-  },
-  {
-    title: "This Is Slow Death",
-    url: "https://www.instagram.com/p/DLw0L90tOg7/",
-    publication: "Instagram",
-    description: "About the gradual erosion of hope",
-  },
-  {
-    title: "Blind world",
-    url: "https://www.instagram.com/p/DL9j2bDtk-K/",
-    publication: "Instagram",
-    description: "Featured on KPFA radio in California",
-  },
-  {
-    title: "Free bird",
-    url: "https://www.instagram.com/p/DMM4-sINLk5/",
-    publication: "Instagram",
-    description: "About freedom and hope",
-  },
-  {
     title: "Alone but Unbroken: Gaza's Cry Against Silence",
     url: "https://baladimagazine.com/alone-but-unbroken-gazas-cry-against-silence/",
     publication: "Baladi Magazine",
@@ -277,34 +229,10 @@ const poemsData = [
     description: "Published in Baladi Magazine",
   },
   {
-    title: "Blind World",
-    url: "https://www.gazapoets.org/blog/blind-world-taqwa-al-wawi",
-    publication: "Gaza Poets Society",
-    description: "Featured on Gaza Poets Society website",
-  },
-  {
-    title: "I Miss My Old Life",
-    url: "https://www.gazapoets.org/blog/i-miss-my-old-life-taqwa-al-wawi",
-    publication: "Gaza Poets Society",
-    description: "Featured on Gaza Poets Society website",
-  },
-  {
-    title: "Famine by Design",
-    url: "https://www.gazapoets.org/blog/dispatches-from-a-manmade-famine-taqwa-al-wawi",
-    publication: "Gaza Poets Society",
-    description: "Dispatches from a manmade famine",
-  },
-  {
     title: "Saudade: A Poem of Grief and Resilience",
     url: "https://baladimagazine.com/saudade-a-poem-of-grief-and-resilience/",
     publication: "Baladi Magazine",
     description: "A powerful poem about grief and resilience",
-  },
-  {
-    title: "If I Must Fall, You Must Rise",
-    url: "https://www.instagram.com/reel/DNhdQF0ursS/",
-    publication: "Gaza's Creative Allies",
-    description: "Read by Ary Madera-Reber as part of Gaza's Creative Allies",
   },
   {
     title: "Three Days of Isolation",
@@ -323,6 +251,30 @@ const poemsData = [
     url: "https://KPFA.org",
     publication: "KPFA Radio California",
     description: "Read on KPFA on August 12, about 40 minutes into the program, lasting 10 minutes",
+  },
+  {
+    title: "This Is Slow Death",
+    url: "https://opol.space/@taqwa-ahmed-al-wawi/poems/e0e1ca10-c4ea-429f-83ab-7a2043fdb12d",
+    publication: "Opol platform ",
+    description: "date: 2 September 2025 ",
+  },
+  {
+    title: "Whispers of Healing",
+    url: "https://opol.space/@taqwa-ahmed-al-wawi/poems/e1b624d3-546b-4936-bcbc-60b37839d429",
+    publication: "Opol platform ",
+    description: "date: 2 September 2025 ",
+  },
+  {
+    title: "I Long for My Old World",
+    url: "https://opol.space/@taqwa-ahmed-al-wawi/poems/ec5c3503-0483-447c-adef-e4990ef1c297",
+    publication: "Opol platform ",
+    description: "date: 2 September 2025 ",
+  },
+  {
+    title: "A Future Beyond the Rubble",
+    url: "https://purplehazelgreen.com/2025/09/07/a-future-beyond-the-rubble/",
+    publication: "Purple-Hazel-Green",
+    description: "By: Purple Hazel Green. For: Taqwa Ahmed Al-Wawi",
   },
 ]
 
@@ -380,6 +332,45 @@ const translationsData = [
     url: "https://erudite.news/fr/technologie/articles/1016576201751728415/gaza_war_whisper_sky_israeli_bombs_futures/",
     publication: "Erudite News",
     language: "French",
+  },
+  {
+    title: "This Is Slow Death",
+    url: "css/img/img1.jpg",
+    publication: "An event in Spain, which took place in Navas de Ríofrio, province of Segovia.",
+    language: "Spanish",
+  },
+
+  {
+    title: "a Kannada magazine",
+    url: "css/img/img2.jpg",
+    publication: "Yayapatha",
+    language: "Kannada ",
+  },
+
+  {
+    title: "Saudade: A Poem of Grief and Resilience",
+    url: "css/img/img4.jpg",
+    publication: "Friends House Friday Newsletter! In California",
+    language: "English",
+  },
+  {
+    title: "Saudade: A Poem of Grief and Resilience",
+    url: "css/img/img5.jpg",
+    publication: "event in Italy.",
+    language: "Italian",
+  },
+  {
+    title: "Saudade: A Poem of Grief and Resilience✓",
+    url: "css/img/img7.jpg",
+    publication: "Nyayapatho, a Kannada magazine",
+    language: "Kannada",
+  },
+  {
+    title:
+      "An interview about our upcoming book Black Gaza and the importance of writing as a way to express the voices of Gazans",
+    url: "https://www.elespanol.com/mundo/europa/20250908/libro-espanol-recoge-voz-propia-ninos-gaza-escribo-ultimo-aliento-llena-rabia-abatimiento/1003743913787_0.html",
+    publication: "El Español",
+    language: "Spanish",
   },
 ]
 
@@ -594,7 +585,7 @@ function createCard(item, type) {
                             <strong>Published in:</strong> ${item.publication}
                         </p>
                         <a href="${item.url}" target="_blank" class="card-link">
-                            Read Article <i class="fas fa-external-link-alt ms-1"></i>
+                            Read translations <i class="fas fa-external-link-alt ms-1"></i>
                         </a>
                     </div>
                 </div>
@@ -615,7 +606,7 @@ function createCard(item, type) {
                             ${item.description}
                         </p>
                         <a href="${item.url}" target="_blank" class="card-link">
-                            Read Article <i class="fas fa-external-link-alt ms-1"></i>
+                            Read Republished Articles <i class="fas fa-external-link-alt ms-1"></i>
                         </a>
                     </div>
                 </div>
