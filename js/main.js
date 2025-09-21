@@ -18,40 +18,98 @@ const itemsPerLoad = 6;
 // جلب البيانات
 
 // جلب البيانات
-fetch("../data.json")
+fetch(
+  "https://sistqwaportfolio-default-rtdb.asia-southeast1.firebasedatabase.app/articlesData.json"
+)
   .then((res) => res.json())
   .then((data) => {
-    articlesData = data.articlesData;
-    poemsData = data.poemsData;
-    translationsData = data.translationsData;
-    republishedArticlesData = data.republishedArticlesData;
-    podcastsData = data.podcastsData;
+    // articlesData = data.articlesData;
 
-    // عرض أول دفعة لكل قسم
-    loadArticles();
-    loadPoems();
-    loadTranslations();
-    loadRepublishedArticles();
-    loadPodcasts();
+    if (data) {
+      articlesData = Object.values(data);
+      // عرض أول دفعة لكل قسم
+      loadArticles();
+    }
+
+    // loadArticles();
 
     // ربط أزرار Load More
     document
       .getElementById("load-more-articles")
       .addEventListener("click", loadArticles);
+  });
+
+fetch(
+  "https://sistqwaportfolio-default-rtdb.asia-southeast1.firebasedatabase.app/poemsData.json"
+)
+  .then((res) => res.json())
+  .then((data) => {
+    // poemsData = data.poemsData;
+    if (data) {
+      poemsData = Object.values(data);
+      // عرض أول دفعة لكل قسم
+      loadPoems();
+    }
+    // ربط أزرار Load More
+
     document
       .getElementById("load-more-poems")
       .addEventListener("click", loadPoems);
+  });
+
+fetch(
+  "https://sistqwaportfolio-default-rtdb.asia-southeast1.firebasedatabase.app/translationsData.json"
+)
+  .then((res) => res.json())
+  .then((data) => {
+    // translationsData = data.translationsData;
+    // translationsData = Array.isArray(data) ? data : data.translationsData;
+    if (data) {
+      translationsData = Object.values(data);
+      // عرض أول دفعة لكل قسم
+      loadTranslations();
+    }
+
+    // ربط أزرار Load More
     document
       .getElementById("load-more-translations")
       ?.addEventListener("click", loadTranslations);
+  });
+
+fetch(
+  "https://sistqwaportfolio-default-rtdb.asia-southeast1.firebasedatabase.app/republishedArticlesData.json"
+)
+  .then((res) => res.json())
+  .then((data) => {
+    // republishedArticlesData = data.republishedArticlesData;
+
+    if (data) {
+      republishedArticlesData = Object.values(data);
+      // عرض أول دفعة لكل قسم
+      loadRepublishedArticles();
+    }
+    // ربط أزرار Load More
     document
       .getElementById("load-more-republished")
       ?.addEventListener("click", loadRepublishedArticles);
+  });
+fetch(
+  "https://sistqwaportfolio-default-rtdb.asia-southeast1.firebasedatabase.app/podcastsData.json"
+)
+  .then((res) => res.json())
+  .then((data) => {
+    // podcastsData = data.podcastsData;
+    if (data) {
+      podcastsData = Object.values(data);
+      // عرض أول دفعة لكل قسم
+      loadPodcasts();
+    }
+
+    // ربط أزرار Load More
     document
       .getElementById("load-more-podcasts")
       ?.addEventListener("click", loadPodcasts);
   });
-
 // دوال التحميل
 function loadArticles() {
   const container = document.getElementById("articles-container");
