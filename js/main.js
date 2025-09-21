@@ -28,10 +28,9 @@ fetch(
     if (data) {
       articlesData = Object.values(data);
       // عرض أول دفعة لكل قسم
+      articlesData.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
       loadArticles();
     }
-
-    // loadArticles();
 
     // ربط أزرار Load More
     document
@@ -44,10 +43,10 @@ fetch(
 )
   .then((res) => res.json())
   .then((data) => {
-    // poemsData = data.poemsData;
     if (data) {
       poemsData = Object.values(data);
       // عرض أول دفعة لكل قسم
+      poemsData.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
       loadPoems();
     }
     // ربط أزرار Load More
@@ -67,6 +66,7 @@ fetch(
     if (data) {
       translationsData = Object.values(data);
       // عرض أول دفعة لكل قسم
+      translationsData.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
       loadTranslations();
     }
 
@@ -86,6 +86,9 @@ fetch(
     if (data) {
       republishedArticlesData = Object.values(data);
       // عرض أول دفعة لكل قسم
+      republishedArticlesData.sort(
+        (a, b) => (b.createdAt || 0) - (a.createdAt || 0)
+      );
       loadRepublishedArticles();
     }
     // ربط أزرار Load More
@@ -102,6 +105,7 @@ fetch(
     if (data) {
       podcastsData = Object.values(data);
       // عرض أول دفعة لكل قسم
+      podcastsData.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
       loadPodcasts();
     }
 
