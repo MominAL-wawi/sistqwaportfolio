@@ -1,10 +1,17 @@
 :root {
-  --primary-color: #2c5aa0;
-  --secondary-color: #1a365d;
-  --accent-color: #e53e3e;
-  --text-dark: #2d3748;
-  --text-light: #718096;
-  --bg-light: #f7fafc;
+  /* نظام ألوان احترافي وعصري */
+  --primary-color: #1a365d;
+  --secondary-color: #2c5aa0;
+  --accent-color: #e74c3c;
+  --text-dark: #1a202c;
+  --text-light: #4a5568;
+  --text-muted: #718096;
+  --bg-light: #f8f9fa;
+  --bg-lighter: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -17,43 +24,112 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
+  background-color: var(--bg-lighter);
+  scroll-behavior: smooth;
 }
 
-/* Navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navigation مع animations */
+.navbar {
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  background-color: var(--primary-color) !important;
+}
+
 .navbar-brand {
   font-size: 1.5rem;
+  font-weight: 700;
+  animation: slideInDown 0.5s ease;
 }
 
 .navbar-nav .nav-link {
   font-weight: 500;
   margin: 0 0.5rem;
+  position: relative;
   transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--accent-color) !important;
+  color: white !important;
 }
 
-/* Hero Section */
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hero Section مع gradient احترافي */
 .hero-section {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 50%, #3182ce 100%);
   color: white;
   padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
+  animation: slideInLeft 0.8s ease 0.2s both;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hero-content p {
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.hero-buttons {
+  animation: fadeInUp 0.8s ease 0.6s both;
 }
 
 .profile-img {
   width: 300px;
   height: 300px;
   object-fit: cover;
+  border-radius: 20px;
   border: 5px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-lg);
+  animation: slideInRight 0.8s ease 0.3s both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.profile-img:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons مع hover effects احترافي */
 .hero-buttons .btn {
   padding: 12px 30px;
   font-weight: 600;
@@ -61,18 +137,32 @@ body {
   transition: all 0.3s ease;
 }
 
-.hero-buttons .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.btn-primary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
-/* Section Titles */
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(231, 76, 60, 0.3);
+}
+
+.btn-outline-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* Section Titles مع underline animation */
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--primary-color);
   position: relative;
   display: inline-block;
+  animation: slideInUp 0.6s ease;
+  letter-spacing: -0.5px;
 }
 
 .section-title::after {
@@ -84,28 +174,59 @@ body {
   width: 60px;
   height: 3px;
   background: var(--accent-color);
+  animation: expandWidth 0.6s ease 0.3s both;
 }
 
-/* Cards */
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}
+
+/* About Section animations */
+.about-content {
+  animation: fadeIn 0.8s ease;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.about-content p:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+/* Cards مع hover transform */
 .content-card {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  background: var(--bg-lighter);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   height: 100%;
   overflow: hidden;
+  border: 1px solid var(--border-color);
+  animation: slideInUp 0.6s ease;
 }
 
 .content-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-color);
 }
 
 .card-header {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   padding: 1rem 1.5rem;
   font-weight: 600;
+  animation: slideInDown 0.6s ease;
 }
 
 .card-body {
@@ -117,25 +238,34 @@ body {
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+
+.card-body:hover .card-title {
+  color: var(--secondary-color);
 }
 
 .card-text {
   color: var(--text-light);
   font-size: 0.9rem;
   margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .card-link {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .card-link:hover {
   color: var(--accent-color);
+  transform: translateX(3px);
 }
 
+/* Language badges pulse animation */
 .language-badge {
   background: var(--accent-color);
   color: white;
@@ -143,9 +273,20 @@ body {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
+  animation: pulse 2s ease-in-out infinite;
 }
 
-/* Social Links */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Social Links مع staggered animations */
 .social-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -157,23 +298,157 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   color: white;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: fadeInUp 0.6s ease;
+}
+
+.social-link:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.social-link:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.social-link:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.social-link:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.social-link:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.social-link:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.social-link:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.social-link:nth-child(8) {
+  animation-delay: 0.8s;
 }
 
 .social-link:hover {
   background: var(--accent-color);
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
 }
 
 .social-link i {
   font-size: 1.5rem;
-  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover i {
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* Loading animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Global animations keyframes */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Padding */
+section {
+  padding: 80px 0;
+}
+
+.py-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.bg-light {
+  background-color: var(--bg-light) !important;
+}
+
+.bg-dark {
+  background-color: var(--primary-color) !important;
+  color: white;
 }
 
 /* Responsive Design */
@@ -185,6 +460,7 @@ body {
   .profile-img {
     width: 250px;
     height: 250px;
+    margin: 0 auto;
   }
 
   .section-title {
@@ -209,37 +485,12 @@ body {
   .social-grid {
     grid-template-columns: 1fr;
   }
-}
 
-/* Loading Animation */
-.loading {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  border-top-color: white;
-  animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+  .section-title {
+    font-size: 1.5rem;
   }
-}
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Section Padding */
-section {
-  padding: 80px 0;
-}
-
-/* About Section */
-.about-content p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+  .section-title::after {
+    width: 40px;
+  }
 }
