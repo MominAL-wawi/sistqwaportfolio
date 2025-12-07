@@ -43,6 +43,11 @@
               <a class="nav-link" href="#republished">Republished</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#certificates"
+                >Certifications & Recognition</a
+              >
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
@@ -386,7 +391,6 @@
     </section>
 
     <!-- Republished Section -->
-
     <section id="republished" class="py-5 bg-light">
       <div class="container">
         <h2 class="section-title text-center mb-5">Republished Articles</h2>
@@ -400,6 +404,134 @@
         </div>
       </div>
     </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="section-title">Certifications & Recognition</h2>
+          <p class="section-subtitle mt-3 text-muted">
+            Professional development and academic achievements
+          </p>
+        </div>
+
+        <div class="certificates-grid">
+          <!-- Certificate 1: Northumbria University -->
+          <div class="certificate-item">
+            <div class="certificate-card">
+              <div class="certificate-image-wrapper">
+                <img
+                  src="css/img/c1.jpg"
+                  alt="Northumbria University Certificate"
+                  class="certificate-image"
+                  loading="lazy"
+                />
+                <div class="certificate-overlay">
+                  <i class="fas fa-search-plus"></i>
+                </div>
+              </div>
+              <div class="certificate-content">
+                <h3 class="certificate-title">
+                  <i class="fas fa-certificate me-2 text-primary"></i>
+                  Understanding Instructed Language-Learning
+                </h3>
+                <div class="certificate-details">
+                  <p class="certificate-institution">
+                    <i class="fas fa-university me-2"></i>
+                    Northumbria University, Newcastle
+                  </p>
+                  <p class="certificate-description">
+                    20-hour course led by Dr Bill Guariento & Professor Nazmi
+                    Al-Masri
+                  </p>
+                  <p class="certificate-date">
+                    <i class="far fa-calendar-alt me-2"></i>
+                    October 18, 2024 - December 20, 2024
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificate 2: University of Malta -->
+          <div class="certificate-item">
+            <div class="certificate-card">
+              <div class="certificate-image-wrapper">
+                <img
+                  src="css/img/c2.jpg"
+                  alt="University of Malta Certificate"
+                  class="certificate-image"
+                  loading="lazy"
+                />
+                <div class="certificate-overlay">
+                  <i class="fas fa-search-plus"></i>
+                </div>
+              </div>
+              <div class="certificate-content">
+                <h3 class="certificate-title">
+                  <i class="fas fa-certificate me-2 text-primary"></i>
+                  Education Lecture Series
+                </h3>
+                <div class="certificate-details">
+                  <p class="certificate-institution">
+                    <i class="fas fa-university me-2"></i>
+                    University of Malta
+                  </p>
+                  <p class="certificate-description">
+                    LINEsforPalestine 2 project - Series of lectures in
+                    Education
+                  </p>
+                  <p class="certificate-instructors">
+                    <i class="fas fa-chalkboard-teacher me-2"></i>
+                    Prof. Carmel Borg, Prof. Magdy Aqel, Dr Maria Gràzia
+                    Imperiale
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificate 3: University of Porto -->
+          <div class="certificate-item">
+            <div class="certificate-card">
+              <div class="certificate-image-wrapper">
+                <img
+                  src="css/img/c3.jpg"
+                  alt="University of Porto Certificate"
+                  class="certificate-image"
+                  loading="lazy"
+                />
+                <div class="certificate-overlay">
+                  <i class="fas fa-search-plus"></i>
+                </div>
+              </div>
+              <div class="certificate-content">
+                <h3 class="certificate-title">
+                  <i class="fas fa-certificate me-2 text-primary"></i>
+                  LINEs to the Future - Gaza-Porto Connections
+                </h3>
+                <div class="certificate-details">
+                  <p class="certificate-institution">
+                    <i class="fas fa-university me-2"></i>
+                    University of Porto, Islamic University of Gaza & University
+                    of Glasgow
+                  </p>
+                  <p class="certificate-description">
+                    LINEsforPalestine 2 project - Contributing to educational
+                    connections
+                  </p>
+                  <p class="certificate-instructors">
+                    <i class="fas fa-chalkboard-teacher me-2"></i>
+                    Damian Ross, Dr Nazmi Almasri, Dr Maria Grazia Imperiale
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Podcasts Section -->
     <section id="podcasts" class="content-section">
       <div class="container">
@@ -517,6 +649,36 @@
       </div>
     </section>
 
+    <!-- Certificate Modal Lightbox -->
+    <div id="certificateModal" class="certificate-modal">
+      <div class="certificate-modal-content">
+        <span class="certificate-modal-close" onclick="closeCertificateModal()"
+          >&times;</span
+        >
+        <img
+          id="modalCertificateImage"
+          class="certificate-modal-image"
+          src="/placeholder.svg"
+          alt="Certificate"
+        />
+        <button
+          class="certificate-modal-nav certificate-modal-prev"
+          onclick="changeCertificate(-1)"
+        >
+          &#10094;
+        </button>
+        <button
+          class="certificate-modal-nav certificate-modal-next"
+          onclick="changeCertificate(1)"
+        >
+          &#10095;
+        </button>
+        <div class="certificate-modal-counter">
+          <span id="certificateCounter">1 / 3</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-dark text-light py-4">
       <div class="container text-center">
@@ -526,5 +688,98 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Certificate Modal JavaScript -->
+    <script>
+      const certificates = [
+        {
+          src: "css/img/c1.jpg",
+          alt: "Northumbria University Certificate",
+        },
+        {
+          src: "css/img/c2.jpg",
+          alt: "University of Malta Certificate",
+        },
+        {
+          src: "css/img/c3.jpg",
+          alt: "University of Porto Certificate",
+        },
+      ];
+
+      let currentCertificateIndex = 0;
+
+      function openCertificateModal(index) {
+        currentCertificateIndex = index;
+        updateModalCertificate();
+        document.getElementById("certificateModal").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeCertificateModal() {
+        document.getElementById("certificateModal").classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+
+      function changeCertificate(direction) {
+        currentCertificateIndex += direction;
+        if (currentCertificateIndex >= certificates.length) {
+          currentCertificateIndex = 0;
+        }
+        if (currentCertificateIndex < 0) {
+          currentCertificateIndex = certificates.length - 1;
+        }
+        updateModalCertificate();
+      }
+
+      function updateModalCertificate() {
+        const modal = document.getElementById("modalCertificateImage");
+        const counter = document.getElementById("certificateCounter");
+        modal.src = certificates[currentCertificateIndex].src;
+        modal.alt = certificates[currentCertificateIndex].alt;
+        counter.textContent = `${currentCertificateIndex + 1} / ${
+          certificates.length
+        }`;
+      }
+
+      // Close modal on ESC key
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeCertificateModal();
+        }
+      });
+
+      // Close modal on click outside
+      document
+        .getElementById("certificateModal")
+        .addEventListener("click", function (event) {
+          if (event.target === this) {
+            closeCertificateModal();
+          }
+        });
+
+      // Arrow keys for navigation
+      document.addEventListener("keydown", function (event) {
+        const modal = document.getElementById("certificateModal");
+        if (modal.classList.contains("active")) {
+          if (event.key === "ArrowLeft") {
+            changeCertificate(-1);
+          } else if (event.key === "ArrowRight") {
+            changeCertificate(1);
+          }
+        }
+      });
+
+      // Add click handlers to certificate images
+      document.addEventListener("DOMContentLoaded", function () {
+        const certificateWrappers = document.querySelectorAll(
+          ".certificate-image-wrapper"
+        );
+        certificateWrappers.forEach((wrapper, index) => {
+          wrapper.addEventListener("click", function () {
+            openCertificateModal(index);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
