@@ -5,6 +5,7 @@ let poemsData = [];
 let translationsData = [];
 let republishedArticlesData = [];
 let podcastsData = [];
+let journeyLinksData = [];
 
 // عدادات العرض لكل نوع
 let articlesDisplayed = 0;
@@ -15,16 +16,50 @@ let podcastsDisplayed = 0;
 
 const itemsPerLoad = 6;
 
-// جلب البيانات
+function loadJourneyLinks() {
+  fetch(
+    "https://sistqwaportfolio-default-rtdb.asia-southeast1.firebasedatabase.app/journeyLinks.json"
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      if (data) {
+        journeyLinksData = Object.values(data);
+        // Sort by display order
+        journeyLinksData.sort(
+          (a, b) => (a.displayOrder || 0) - (b.displayOrder || 0)
+        );
+
+        // Build the links HTML
+        const container = document.getElementById("dynamic-links-container");
+        if (container) {
+          let linksHTML = "";
+          journeyLinksData.forEach((link, index) => {
+            linksHTML += `<a href="${link.url}" target="_blank" class="card-link">${link.linkText}</a>`;
+            // Add comma or "and" separator
+            if (index < journeyLinksData.length - 2) {
+              linksHTML += ", ";
+            } else if (index === journeyLinksData.length - 2) {
+              linksHTML += ", and ";
+            }
+          });
+          container.innerHTML = linksHTML;
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Error loading journey links:", error);
+    });
+}
+
+loadJourneyLinks();
 
 // جلب البيانات
+
 fetch(
   "https://sistqwaportfolio-default-rtdb.asia-southeast1.firebasedatabase.app/articlesData.json"
 )
   .then((res) => res.json())
   .then((data) => {
-    // articlesData = data.articlesData;
-
     if (data) {
       articlesData = Object.values(data);
       // عرض أول دفعة لكل قسم
@@ -61,8 +96,6 @@ fetch(
 )
   .then((res) => res.json())
   .then((data) => {
-    // translationsData = data.translationsData;
-    // translationsData = Array.isArray(data) ? data : data.translationsData;
     if (data) {
       translationsData = Object.values(data);
       // عرض أول دفعة لكل قسم
@@ -81,8 +114,6 @@ fetch(
 )
   .then((res) => res.json())
   .then((data) => {
-    // republishedArticlesData = data.republishedArticlesData;
-
     if (data) {
       republishedArticlesData = Object.values(data);
       // عرض أول دفعة لكل قسم
@@ -96,12 +127,12 @@ fetch(
       .getElementById("load-more-republished")
       ?.addEventListener("click", loadRepublishedArticles);
   });
+
 fetch(
   "https://sistqwaportfolio-default-rtdb.asia-southeast1.firebasedatabase.app/podcastsData.json"
 )
   .then((res) => res.json())
   .then((data) => {
-    // podcastsData = data.podcastsData;
     if (data) {
       podcastsData = Object.values(data);
       // عرض أول دفعة لكل قسم
@@ -114,6 +145,7 @@ fetch(
       .getElementById("load-more-podcasts")
       ?.addEventListener("click", loadPodcasts);
   });
+
 // دوال التحميل
 function loadArticles() {
   const container = document.getElementById("articles-container");
@@ -268,7 +300,7 @@ function createCard(item, type) {
       cardContent = `
                 <div class="content-card">
                     <div class="card-header">
-                        <i class="fas fa-podcast me-2"></i>podcast
+                        <i class="fas fa-podcast me-2"></i>Podcast
                         <span class="language-badge float-end">${item.platform}</span>
                     </div>
                     <div class="card-body">
@@ -291,129 +323,11 @@ function createCard(item, type) {
 }
 
 // Initialize the page
-
-function loadArticles() {
-  const container = document.getElementById("articles-container");
-  const articlesToShow = articlesData.slice(
-    articlesDisplayed,
-    articlesDisplayed + itemsPerLoad
-  );
-
-  articlesToShow.forEach((article) => {
-    const card = createCard(article, "article");
-    container.appendChild(card);
-  });
-
-  articlesDisplayed += articlesToShow.length;
-
-  // Hide load more button if all articles are displayed
-  if (articlesDisplayed >= articlesData.length) {
-    document.getElementById("load-more-articles").style.display = "none";
-  }
-}
-
-function loadMoreArticles() {
+window.onload = () => {
   loadArticles();
-}
-
-function loadPoems() {
-  const container = document.getElementById("poems-container");
-  const poemsToShow = poemsData.slice(
-    poemsDisplayed,
-    poemsDisplayed + itemsPerLoad
-  );
-
-  poemsToShow.forEach((poem) => {
-    const card = createCard(poem, "poem");
-    container.appendChild(card);
-  });
-
-  poemsDisplayed += poemsToShow.length;
-
-  // Hide load more button if all poems are displayed
-  if (poemsDisplayed >= poemsData.length) {
-    document.getElementById("load-more-poems").style.display = "none";
-  }
-}
-
-function loadMorePoems() {
   loadPoems();
-}
-
-function loadTranslations() {
-  const container = document.getElementById("translations-container");
-  const translationsToShow = translationsData.slice(
-    translationsDisplayed,
-    translationsDisplayed + itemsPerLoad
-  );
-
-  translationsToShow.forEach((translation) => {
-    const card = createCard(translation, "translation");
-    container.appendChild(card);
-  });
-
-  translationsDisplayed += translationsToShow.length;
-
-  // Hide load more button if all translations are displayed
-  const loadMoreBtn = document.getElementById("load-more-translations");
-  if (loadMoreBtn && translationsDisplayed >= translationsData.length) {
-    loadMoreBtn.style.display = "none";
-  }
-}
-
-function loadMoreTranslations() {
   loadTranslations();
-}
-
-function loadRepublishedArticles() {
-  const container = document.getElementById("republished-container");
-  if (!container) return; // Exit if container doesn't exist
-
-  const articlesToShow = republishedArticlesData.slice(
-    republishedDisplayed,
-    republishedDisplayed + itemsPerLoad
-  );
-
-  articlesToShow.forEach((article) => {
-    const card = createCard(article, "republished");
-    container.appendChild(card);
-  });
-  republishedDisplayed += articlesToShow.length;
-
-  // Hide load more button if all republished articles are displayed
-  const loadMoreBtn = document.getElementById("load-more-republished");
-  if (loadMoreBtn && republishedDisplayed >= republishedArticlesData.length) {
-    loadMoreBtn.style.display = "none";
-  }
-}
-
-function loadMoreRepublishedArticles() {
   loadRepublishedArticles();
-}
-
-function loadPodcasts() {
-  const container = document.getElementById("podcasts-container");
-  if (!container) return; // Exit if container doesn't exist
-
-  const podcastsToShow = podcastsData.slice(
-    podcastsDisplayed,
-    podcastsDisplayed + itemsPerLoad
-  );
-
-  podcastsToShow.forEach((podcast) => {
-    const card = createCard(podcast, "podcast");
-    container.appendChild(card);
-  });
-
-  podcastsDisplayed += podcastsToShow.length;
-
-  // Hide load more button if all podcasts are displayed
-  const loadMoreBtn = document.getElementById("load-more-podcasts");
-  if (loadMoreBtn && podcastsDisplayed >= podcastsData.length) {
-    loadMoreBtn.style.display = "none";
-  }
-}
-
-function loadMorePodcasts() {
   loadPodcasts();
-}
+  loadJourneyLinks();
+};
