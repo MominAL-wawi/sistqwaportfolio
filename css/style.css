@@ -924,3 +924,25 @@ section {
     font-size: 1rem;
   }
 }
+
+/* تحسين أزرار Load More */
+#load-more-articles,
+#load-more-poems,
+#load-more-translations,
+#load-more-republished,
+#load-more-podcasts {
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+#load-more-articles:hover,
+#load-more-poems:hover,
+#load-more-translations:hover,
+#load-more-republished:hover,
+#load-more-podcasts:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(44, 90, 160, 0.3);
+}
