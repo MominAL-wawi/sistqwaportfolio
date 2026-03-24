@@ -154,10 +154,10 @@ html {
 .hero-section {
   background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 50%, #3182ce 100%);
   color: white;
-  padding-top: 120px;
+  padding-top: 80px;
+  padding-bottom: 60px;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
 }
 
 .hero-section::before {
