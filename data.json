@@ -459,6 +459,19 @@
     }
   ],
 
+  "journeyLinksData": [
+    {
+      "linkText": "Gaza Calling – Will the World Pick Up?",
+      "url": "https://open.substack.com/pub/coastallinespress/p/gaza-calling-will-the-world-pick?utm_source=share&utm_medium=android&r=62hmgo",
+      "displayOrder": 1
+    },
+    {
+      "linkText": "Editor's Review: Gaza Calling – Will the World Pick Up?",
+      "url": "https://open.substack.com/pub/coastallinespress/p/editors-review-a39?utm_source=share&utm_medium=android&r=62hmgo",
+      "displayOrder": 2
+    }
+  ],
+
   "podcastsData": [
     {
       "title": "We have education as our weapon' - EAP for Social Justice podcast from Gaza",
