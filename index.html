@@ -8,6 +8,7 @@
     <link href="css/all.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
   </head>
+
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -69,7 +70,8 @@
         width: 380px;
         height: 380px;
         object-fit: cover;
-        object-position: center 10%; /* ينزل الرأس للأسفل */
+        object-position: center 10%;
+        /* ينزل الرأس للأسفل */
         border-radius: 50%;
         border: 8px solid #7da7ff;
       }
@@ -89,7 +91,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero-section">
       <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
           <!-- النص -->
           <div class="col-lg-6">
             <div class="hero-content">
@@ -445,8 +447,8 @@
                     </li>
                     <li class="mb-3">
                       <i class="fas fa-euro-sign me-2 text-primary"></i
-                      ><strong>Recommended donation per copy:</strong> €20-€30
-                      (more is always welcome)
+                      ><strong>Recommended donation per copy:</strong>
+                      €20-€30 (more is always welcome)
                     </li>
                     <li class="mb-3">
                       <i class="fas fa-phone me-2 text-primary"></i
@@ -757,6 +759,24 @@
       </div>
     </section>
 
+    <!-- Publication Lightbox Modal -->
+    <div id="publicationLightbox" class="publication-lightbox">
+      <div class="publication-lightbox-content">
+        <button
+          class="publication-lightbox-close"
+          onclick="closePublicationLightbox()"
+        >
+          &times;
+        </button>
+        <img
+          id="publicationLightboxImg"
+          class="publication-lightbox-img"
+          src=""
+          alt="Publication"
+        />
+      </div>
+    </div>
+
     <!-- Certificate Modal Lightbox -->
     <div id="certificateModal" class="certificate-modal">
       <div class="certificate-modal-content">
@@ -886,6 +906,52 @@
           wrapper.addEventListener("click", function () {
             openCertificateModal(index);
           });
+        });
+      });
+
+      // Publication Lightbox Functions
+      function openPublicationLightbox(imageSrc, imageAlt) {
+        const lightbox = document.getElementById("publicationLightbox");
+        const lightboxImg = document.getElementById("publicationLightboxImg");
+        lightboxImg.src = imageSrc;
+        lightboxImg.alt = imageAlt;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closePublicationLightbox() {
+        const lightbox = document.getElementById("publicationLightbox");
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Add click handlers to publication images
+      document.addEventListener("DOMContentLoaded", function () {
+        const publicationWrappers = document.querySelectorAll(
+          ".publication-image-wrapper",
+        );
+        publicationWrappers.forEach((wrapper) => {
+          wrapper.addEventListener("click", function () {
+            const img = this.querySelector(".publication-image");
+            openPublicationLightbox(img.src, img.alt);
+          });
+        });
+
+        // Close lightbox on click outside image
+        const lightbox = document.getElementById("publicationLightbox");
+        if (lightbox) {
+          lightbox.addEventListener("click", function (e) {
+            if (e.target === this) {
+              closePublicationLightbox();
+            }
+          });
+        }
+
+        // Close lightbox on ESC key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            closePublicationLightbox();
+          }
         });
       });
     </script>
