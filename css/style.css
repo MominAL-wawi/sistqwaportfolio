@@ -946,3 +946,124 @@ section {
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(44, 90, 160, 0.3);
 }
+
+/* Publications Section */
+#publications {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.publication-item {
+  animation: fadeInUp 0.8s ease both;
+}
+
+.publication-item:nth-child(1) { animation-delay: 0.1s; }
+.publication-item:nth-child(2) { animation-delay: 0.15s; }
+.publication-item:nth-child(3) { animation-delay: 0.2s; }
+.publication-item:nth-child(4) { animation-delay: 0.25s; }
+.publication-item:nth-child(5) { animation-delay: 0.3s; }
+.publication-item:nth-child(6) { animation-delay: 0.35s; }
+.publication-item:nth-child(7) { animation-delay: 0.4s; }
+.publication-item:nth-child(8) { animation-delay: 0.45s; }
+.publication-item:nth-child(9) { animation-delay: 0.5s; }
+
+.publication-card {
+  background: var(--bg-lighter);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid var(--border-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.publication-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-color);
+}
+
+.publication-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.publication-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.publication-card:hover .publication-image {
+  transform: scale(1.05);
+}
+
+.publication-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.publication-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.publication-text em {
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+.publication-text strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* Responsive adjustments for publications */
+@media (max-width: 768px) {
+  .publications-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .publication-content {
+    padding: 1.25rem;
+  }
+
+  .publication-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .publications-grid {
+    gap: 1rem;
+  }
+
+  .publication-content {
+    padding: 1rem;
+  }
+
+  .publication-text {
+    font-size: 0.85rem;
+  }
+}
