@@ -154,10 +154,10 @@ html {
 .hero-section {
   background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 50%, #3182ce 100%);
   color: white;
-  padding-top: 120px;
+  padding-top: 80px;
+  padding-bottom: 60px;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
 }
 
 .hero-section::before {
@@ -994,9 +994,44 @@ section {
 .publication-image-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 75%;
+  padding-top: 100%;
   overflow: hidden;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  cursor: pointer;
+}
+
+.publication-image-wrapper::after {
+  content: '\f065';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.publication-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.publication-image-wrapper:hover::after,
+.publication-image-wrapper:hover::before {
+  opacity: 1;
 }
 
 .publication-image {
@@ -1005,12 +1040,78 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s ease;
+  padding: 10px;
 }
 
 .publication-card:hover .publication-image {
-  transform: scale(1.05);
+  transform: scale(1.02);
+}
+
+/* Publication Lightbox Modal */
+.publication-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.publication-lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+
+.publication-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: lightboxZoomIn 0.3s ease;
+}
+
+@keyframes lightboxZoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.publication-lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.publication-lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.publication-lightbox-close:hover {
+  transform: scale(1.2);
+  color: #ff6b6b;
 }
 
 .publication-content {
